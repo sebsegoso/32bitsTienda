@@ -1,12 +1,13 @@
 <template>
   <div>
     <h1>Stock</h1>
+    <p>Juegos totales: {{juegosTotales}}</p>
     <b-table striped hover :items="productos" :fields="fieldsTablas"></b-table>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "Stock",
@@ -17,6 +18,7 @@ export default {
   },
   computed: {
     ...mapState(["productos" , 'fieldsTablas']),
+    ...mapGetters(["juegosTotales"]),
   },
 };
 </script>

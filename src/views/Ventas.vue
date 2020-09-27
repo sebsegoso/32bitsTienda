@@ -38,7 +38,7 @@
 
             <b-button
               type="submit"
-              variant="primary"
+              variant="dark"
               @click="descontar"
               :disabled="productoSinStock"
               >Agregar producto</b-button
