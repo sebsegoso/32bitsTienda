@@ -4,7 +4,10 @@
     <hr />
     <div>
       <!-- PESTAÑAS  -->
-      <b-tabs align="center" active-nav-item-class="font-weight-bold text-uppercase">
+      <b-tabs
+        align="center"
+        active-nav-item-class="font-weight-bold text-uppercase"
+      >
         <!-- PRIMERA PESTAÑA  -->
         <b-tab title="Agregar Ventas" class="agregarVentas" active>
           <h2>Agregar venta</h2>
@@ -12,6 +15,7 @@
             <label for>Nombre</label>
             <input v-model="nombre" placeholder="Nombre" list="titulos" />
             <hr />
+
             <label for>Código</label>
             <input
               v-model="autocompletado.codigo"
@@ -19,9 +23,11 @@
               placeholder="Código"
             />
             <hr />
+
             <label for>Stock</label>
             <input v-model="stock" disabled placeholder="Stock" />
             <hr />
+
             <label for>Precio</label>
             <input
               v-model="autocompletado.precio"
@@ -35,7 +41,7 @@
               variant="primary"
               @click="descontar"
               :disabled="productoSinStock"
-              >Comprar</b-button
+              >Agregar producto</b-button
             >
           </div>
         </b-tab>
@@ -75,7 +81,10 @@ export default {
   methods: {
     descontar() {
       this.$store.dispatch("descontar", this.nombre);
-      {this.autocompletado.precio}this.$swal({
+      {
+        this.autocompletado.precio;
+      }
+      this.$swal({
         position: "top-end",
         icon: "success",
         title: `Producto agregado: \n${this.nombre}\n(${this.autocompletado.codigo})`,
@@ -112,8 +121,8 @@ export default {
 
 <style lang="scss" scoped>
 .inputs {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   width: 60%;
   position: relative;
   left: 50vw;

@@ -3,7 +3,6 @@
       <h1>32 bits</h1>
       <h2>Juegos de PC y consolas!</h2>
       <hr>
-      <h3>Haz click sobre la página que deseas visitar</h3>
       <div class="enlaces">
         <router-link :to="{name: 'Busqueda'}" class="enlace">Búsqueda</router-link>
         <router-link :to="{name: 'Ventas'}" class="enlace">Ventas</router-link>
@@ -11,6 +10,7 @@
         <router-link :to="{name: 'Total'}" class="enlace">Total</router-link>
         
       </div>
+      <p>(Haz click sobre la página que deseas visitar)</p>
   </div>
 </template>
 
