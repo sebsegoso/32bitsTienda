@@ -9,7 +9,7 @@ export default new Vuex.Store({
       {
         codigo: "0001",
         nombre: "Sekiro",
-        stock: 100,
+        stock: 87,
         precio: 30000,
         color: "red",
         destacado: true
@@ -25,7 +25,7 @@ export default new Vuex.Store({
       {
         codigo: "0003",
         nombre: "Gears of War 4",
-        stock: 100,
+        stock: 25,
         precio: 15000,
         color: "green",
         destacado: true
@@ -33,7 +33,7 @@ export default new Vuex.Store({
       {
         codigo: "0004",
         nombre: "Mario Tennis Aces",
-        stock: 100,
+        stock: 94,
         precio: 35000,
         color: "yellow",
         destacado: false
@@ -41,7 +41,7 @@ export default new Vuex.Store({
       {
         codigo: "0005",
         nombre: "Bloodborne",
-        stock: 100,
+        stock: 0,
         precio: 10000,
         color: "blue",
         destacado: false
@@ -49,16 +49,62 @@ export default new Vuex.Store({
       {
         codigo: "0006",
         nombre: "Forza Horizon 4",
-        stock: 100,
+        stock: 82,
         precio: 20000,
         color: "red",
         destacado: true
       }
-    ]
+    ],
+    fieldsTablas: [{
+      key: 'codigo',
+      sortable: true
+    }, {
+      key: 'nombre',
+      sortable: true
+    }, {
+      key: 'stock',
+      sortable: true
+    },
+    {
+      key: 'precio',
+      sortable: true
+    }]
+  },
+  getters: {
+    juegosTotales: (state) => {
+      let total = 0
+      state.productos.forEach(e => total += e.stock)
+      return total
+    },
+    productosConStock: (state) => {
+      return state.productos.filter((juego) => juego.stock > 0)
+    },
+    nombresProductosConStock: (state) => {
+      let titulos = []
+      state.productos.forEach(juego => titulos.push(juego.nombre))
+      return titulos
+    },
+    resultadoBusquedaProducto: (state) => (producto) => {
+      return state.productos.filter(
+        (p) => p.codigo.includes(producto) || p.nombre.toUpperCase().includes(producto.toUpperCase())
+      );
+    },
   },
   mutations: {
+    DESCONTAR_JUEGO(state, payload){
+      state.productos = payload
+    }
   },
   actions: {
+    descontar({ commit, state }, payload) {
+      let juegosActualizados = state.productos.map(e => {
+        if (e.nombre.toUpperCase() == payload.toUpperCase()) {
+          e.stock--
+        }
+        return e
+      })
+      commit('DESCONTAR_JUEGO' , juegosActualizados)
+    }
   },
   modules: {
   }

@@ -2,15 +2,23 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link :to="{name:'Busqueda'}">Busqueda</router-link> |
-      <router-link :to="{name:'Ventas'}">Ventas</router-link> |
-      <router-link :to="{name:'Total'}">Total</router-link>
+      <router-link :to="{ name: 'Busqueda' }">Busqueda</router-link> |
+      <router-link :to="{ name: 'Ventas' }">Ventas</router-link> |
+      <router-link :to="{ name: 'Stock' }">Stock</router-link> |
+      <router-link :to="{ name: 'Total' }">Total</router-link>
     </div>
-    <router-view/>
+    <hr />
+    <transition name="transicion">
+      <router-view />
+    </transition>
   </div>
 </template>
 
 <style lang="scss">
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,4 +40,5 @@
     }
   }
 }
+
 </style>

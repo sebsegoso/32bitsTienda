@@ -13,25 +13,25 @@ const routes = [
   {
     path: '/busqueda',
     name: 'Busqueda',
-    // route level code-splitting
-    // this generates a separate chunk (busqueda.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "busqueda" */ '../views/Busqueda.vue')
+    component: () => import('../views/Busqueda.vue')
   },
   {
     path: '/ventas',
     name: 'Ventas',
-    // route level code-splitting
-    // this generates a separate chunk (ventas.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "ventas" */ '../views/Ventas.vue')
-  },{
+    component: () => import('../views/Ventas.vue')
+  }, {
     path: '/total',
     name: 'Total',
-    // route level code-splitting
-    // this generates a separate chunk (total.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "total" */ '../views/Total.vue')
+    component: () => import('../views/Total.vue')
+  }, {
+    path: '/stock',
+    name: 'Stock',
+    component: () => import('../views/Stock.vue')
+  },
+  {
+    path: '/*',
+    name: 'NotFound',
+    component: () => import('../views/NotFound.vue')
   }
 ]
 
