@@ -35,10 +35,10 @@ name: 'Inicio'
     transition: all .4s ease;
       font-size: 50px;
       text-decoration: none;
-      color: #2c3e50;
+      // color: #2c3e50;
     &:hover{
       background-color: #ccc;
-      color: #42b983;
+      // color: #42b983;
     }
   }
 }

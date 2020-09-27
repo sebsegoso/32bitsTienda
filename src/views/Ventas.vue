@@ -4,7 +4,7 @@
     <hr />
     <div>
       <!-- PESTAÑAS  -->
-      <b-tabs>
+      <b-tabs align="center" active-nav-item-class="font-weight-bold text-uppercase">
         <!-- PRIMERA PESTAÑA  -->
         <b-tab title="Agregar Ventas" class="agregarVentas" active>
           <h2>Agregar venta</h2>

@@ -90,23 +90,29 @@ export default new Vuex.Store({
         (p) => p.codigo.includes(producto) || p.nombre.toUpperCase().includes(producto.toUpperCase())
       );
     },
+    dineroRecaudado(state){
+      let total = 0
+      state.totalVentas.forEach(e => total += e.precio)
+      return total
+    }
   },
   mutations: {
     JUEGO_VENDIDO(state, payload) {
       state.productos = payload
     },
-    AGREGAR_VENTA(state, payload) {
-      state.totalVentas = payload
-    }
+    // AGREGAR_VENTA(state, payload) {
+    //   state.totalVentas = payload
+    // }
   },
   actions: {
     descontar({ commit, state }, payload) {
-      let registro;
+      // let registro;
       let juegosActualizados = state.productos.map(e => {
         if (e.nombre.toUpperCase() == payload.toUpperCase()) {
           e.stock--
           state.totalVentas.push(e)
-          registro = e
+          
+          // registro = e
         }
         return e
       })
