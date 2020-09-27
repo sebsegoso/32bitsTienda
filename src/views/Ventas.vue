@@ -20,11 +20,7 @@
             />
             <hr />
             <label for>Stock</label>
-            <input
-              v-model="stock"
-              disabled
-              placeholder="Stock"
-            />
+            <input v-model="stock" disabled placeholder="Stock" />
             <hr />
             <label for>Precio</label>
             <input
@@ -79,8 +75,14 @@ export default {
   methods: {
     descontar() {
       this.$store.dispatch("descontar", this.nombre);
-      alert("Producto agregado")
-      this.nombre = ''
+      {this.autocompletado.precio}this.$swal({
+        position: "top-end",
+        icon: "success",
+        title: `Producto agregado: \n${this.nombre}\n(${this.autocompletado.codigo})`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      this.nombre = "";
     },
   },
   computed: {
@@ -100,7 +102,9 @@ export default {
       );
     },
     stock() {
-      return this.autocompletado.stock === 0 ? "Producto sin stock disponible" : this.autocompletado.stock;
+      return this.autocompletado.stock === 0
+        ? "Producto sin stock disponible"
+        : this.autocompletado.stock;
     },
   },
 };

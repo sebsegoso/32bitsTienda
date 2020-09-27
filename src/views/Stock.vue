@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Stock</h1>
     <b-table striped hover :items="productos" :fields="fieldsTablas"></b-table>
   </div>
 </template>

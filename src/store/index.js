@@ -68,7 +68,8 @@ export default new Vuex.Store({
     {
       key: 'precio',
       sortable: true
-    }]
+    }],
+    totalVentas: []
   },
   getters: {
     juegosTotales: (state) => {
@@ -91,20 +92,32 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    DESCONTAR_JUEGO(state, payload){
+    JUEGO_VENDIDO(state, payload) {
       state.productos = payload
+    },
+    AGREGAR_VENTA(state, payload) {
+      state.totalVentas = payload
     }
   },
   actions: {
     descontar({ commit, state }, payload) {
+      let registro;
       let juegosActualizados = state.productos.map(e => {
         if (e.nombre.toUpperCase() == payload.toUpperCase()) {
           e.stock--
+          state.totalVentas.push(e)
+          registro = e
         }
         return e
       })
-      commit('DESCONTAR_JUEGO' , juegosActualizados)
-    }
+      commit('JUEGO_VENDIDO', juegosActualizados)
+      // dispatch('agregarVenta' , registro )
+    },
+    // agregarVenta({ commit, state }, payload) {
+    //   let ventas = state.totalVentas
+    //   ventas.push(payload)
+    //   commit('AGREGAR_VENTA' , ventas)
+    // }
   },
   modules: {
   }

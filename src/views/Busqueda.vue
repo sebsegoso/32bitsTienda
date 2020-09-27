@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Busqueda</h1>
     <div class="busqueda">
       <label for="producto">Busqueda por código o nombre :</label>
       <input name="producto" type="text" v-model="producto" autofocus />
