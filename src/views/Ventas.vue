@@ -13,26 +13,26 @@
           <h2>Agregar venta</h2>
           <div class="inputs">
             <label for>Nombre</label>
-            <input v-model="nombre" placeholder="Nombre" list="titulos" />
+            <input v-model="nombre" placeholder="Buscar por nombre" list="titulos" />
             <hr />
 
             <label for>Código</label>
             <input
               v-model="autocompletado.codigo"
               disabled
-              placeholder="Código"
+              
             />
             <hr />
 
             <label for>Stock</label>
-            <input v-model="stock" disabled placeholder="Stock" />
+            <input v-model="stock" disabled  />
             <hr />
 
             <label for>Precio</label>
             <input
               v-model="autocompletado.precio"
               disabled
-              placeholder="Precio"
+             
             />
             <hr />
 

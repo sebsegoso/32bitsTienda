@@ -1,8 +1,9 @@
 <template>
   <section>
-    <h1>32 bits</h1>
-    <h2>Juegos de PC y consolas!</h2>
-    <hr />
+    <div class="hero">
+      <h1>32 bits</h1>
+      <h2>Juegos de PC y consolas!</h2>
+    </div>
     <div class="enlaces">
       <router-link :to="{ name: 'Busqueda' }" class="enlace"
         >Búsqueda</router-link
@@ -22,6 +23,18 @@ export default {
 </script>
 
 <style lang="scss">
+.hero{
+  text-align: left;
+  padding: 40px;
+  height: 250px;
+  color: #f4d35e;
+  text-shadow: 1px 1px 5px #000;
+  background-image: url(https://socialgeek.co/wp-content/uploads/2019/03/gamer-1280x720.jpg);
+  background-size:auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
 .enlaces {
   display: flex;
   flex-wrap: wrap;

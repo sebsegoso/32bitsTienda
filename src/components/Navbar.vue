@@ -26,7 +26,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 10px #0d3b66;
-  margin-bottom: 30px;
   color:#f95738;
   h1 {
     color: #f95738;
